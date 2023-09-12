@@ -1,20 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:tripzzy/firstplace_day2.dart';
 import 'package:tripzzy/fourthplace.dart';
 import 'package:tripzzy/fourthplace_day2.dart';
 import 'package:tripzzy/secondplace.dart';
 import 'package:tripzzy/secondplace_day2.dart';
+import 'package:tripzzy/secondplace_day3.dart';
 import 'package:tripzzy/thirdplace.dart';
 import 'package:tripzzy/thirdplace_day2.dart';
+import 'package:tripzzy/thirdplace_day3.dart';
+import 'firstplace_day3.dart';
+import 'fourthplace_day3.dart';
 
-class Day2 extends StatefulWidget {
-  const Day2({Key? key}) : super(key: key);
+class Day3 extends StatefulWidget {
+  const Day3({Key? key}) : super(key: key);
 
   @override
-  State<Day2> createState() => _Day2State();
+  State<Day3> createState() => _Day3State();
 }
 
-class _Day2State extends State<Day2> {
+class _Day3State extends State<Day3> {
   DateTime? selectedDate; // To store the selected date
 
   @override
@@ -46,7 +49,7 @@ class _Day2State extends State<Day2> {
         backgroundColor: Color(0xFFF37D4A), // Set background color
         title: Center(
           child: Text(
-            'Day 2',
+            'Day 3',
             style: TextStyle(
               color: Colors.white,
               fontSize: 40,
@@ -112,7 +115,7 @@ class _Day2State extends State<Day2> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => FirstplaceDay2Main(),
+                          builder: (context) => FirstplaceDay3Main(),
                         ),
                       );
                     },
@@ -139,7 +142,7 @@ class _Day2State extends State<Day2> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => SecondplaceDay2Main(),
+                          builder: (context) => SecondplaceDay3Main(),
                         ),
                       );
                     },
@@ -166,7 +169,7 @@ class _Day2State extends State<Day2> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => ThirdplaceDay2Main(),
+                          builder: (context) => ThirdplaceDay3Main(),
                         ),
                       );
                     },
@@ -193,7 +196,7 @@ class _Day2State extends State<Day2> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => FourthplaceDay2Main(),
+                          builder: (context) => FourthplaceDay3Main(),
                         ),
                       );
                     },
@@ -241,5 +244,5 @@ class CustomShapeBorder extends ContinuousRectangleBorder {
 }
 
 void main() {
-  runApp(MaterialApp(home: Day2()));
+  runApp(MaterialApp(home: Day3()));
 }

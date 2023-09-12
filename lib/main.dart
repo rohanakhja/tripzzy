@@ -1,13 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tripzzy/day1.dart';
+import 'package:tripzzy/description.dart';
 import 'package:tripzzy/provider/Firstplaceday2_provider.dart';
+import 'package:tripzzy/provider/Firstplaceday3_provider.dart';
+import 'package:tripzzy/provider/Firstplaceday4_provider.dart';
 import 'package:tripzzy/provider/FourthPlaceDetails.dart';
 import 'package:tripzzy/provider/Fourthplaceday2_provider.dart';
+import 'package:tripzzy/provider/Fourthplaceday3_provider.dart';
+import 'package:tripzzy/provider/Fourthplaceday4_provider.dart';
 import 'package:tripzzy/provider/SecondPlaceDetails.dart';
 import 'package:tripzzy/provider/Secondplaceday2_provider.dart';
+import 'package:tripzzy/provider/Secondplaceday3_provider.dart';
+import 'package:tripzzy/provider/Secondplaceday4_provider.dart';
 import 'package:tripzzy/provider/ThirdPlaceDetails.dart';
 import 'package:tripzzy/provider/Thirdplaceday2_provider.dart';
+import 'package:tripzzy/provider/Thirdplaceday3_provider.dart';
+import 'package:tripzzy/provider/Thirdplaceday4_provider.dart';
+import 'package:tripzzy/provider/dateprovider.dart';
 
 import 'package:tripzzy/provider/placeprovider.dart';
 
@@ -38,6 +48,33 @@ void main() {
         ),
         ChangeNotifierProvider(
           create: (context) => FourthPlaceDay2(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => FirstPlaceDay3(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => SecondPlaceDay3(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => ThirdPlaceDay3(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => FourthPlaceDay3(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => FirstPlaceDay4(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => SecondPlaceDay4(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => ThirdPlaceDay4(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => FourthPlaceDay4(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => DateProvider(),
         ),
       ],
       child: MyApp(),
@@ -123,7 +160,7 @@ class _HomePageState extends State<HomePage> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => Day1(),
+                          builder: (context) => Description(),
                         ),
                       );
                     },

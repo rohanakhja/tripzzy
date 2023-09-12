@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tripzzy/day1.dart';
 import 'package:tripzzy/day2.dart';
+import 'package:tripzzy/day3.dart';
 import 'package:tripzzy/provider/Firstplaceday2_provider.dart';
 import 'package:tripzzy/provider/Fourthplaceday2_provider.dart';
 import 'package:tripzzy/provider/placeprovider.dart';
 import 'package:tripzzy/secondplace.dart';
+
+import 'LastInfo.dart';
 
 class FourthplaceDay2Main extends StatelessWidget {
   @override
@@ -127,7 +130,7 @@ class FourthplaceDay2Main extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.only(left: 670, top: 20),
-              child: SizedBox(height: 20),
+              child: SizedBox(height: 10),
             ),
             ElevatedButton(
               onPressed: () {
@@ -288,23 +291,23 @@ class FourthplaceDay2Main extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 35),
+            SizedBox(height: 15),
             // Add spacing
             Row(
               children: [
-                SizedBox(width: 40),
+                SizedBox(width: 45),
                 ElevatedButton(
                   onPressed: () {
                     //nevigate
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => Day1(),
+                        builder: (context) => Day3(),
                       ),
                     );
                   },
                   child: Text(
-                    'Next ➜',
+                    'Next Place',
                     style: TextStyle(
                       fontSize: 18,
                       fontStyle: FontStyle.italic,
@@ -327,12 +330,12 @@ class FourthplaceDay2Main extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => Day2(),
+                        builder: (context) => Day3(),
                       ),
                     );
                   },
                   child: Text(
-                    'Submit',
+                    'Next Day',
                     style: TextStyle(
                       fontSize: 21,
                       fontStyle: FontStyle.italic,
@@ -349,6 +352,65 @@ class FourthplaceDay2Main extends StatelessWidget {
                   ),
                 ),
               ],
+            ),
+
+            SizedBox(
+              height: 70,
+              width: 270,
+              child: Row(
+                children: [
+                  ElevatedButton(
+                    onPressed: () {
+                      Provider.of<FourthPlaceDay2>(context, listen: false)
+                          .clearData();
+                    },
+                    child: Text(
+                      'Clear Info',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontStyle: FontStyle.italic,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor:
+                          Color.fromARGB(202, 7, 13, 17), // Set button color
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      minimumSize: Size(120, 40), // Set button size
+                    ),
+                  ),
+                  SizedBox(width: 30),
+                  ElevatedButton(
+                    onPressed: () {
+                      //nevigate
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => LastInfo(),
+                        ),
+                      );
+                    },
+                    child: Text(
+                      'Submit',
+                      style: TextStyle(
+                        fontSize: 21,
+                        fontStyle: FontStyle.italic,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor:
+                          Color.fromARGB(202, 7, 13, 17), // Set button color
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      minimumSize: Size(120, 40), // Set button size
+                    ),
+                  ),
+                ],
+              ),
             ),
           ],
         ),

@@ -4,6 +4,8 @@ import 'package:tripzzy/fourthplace.dart';
 import 'package:tripzzy/secondplace.dart';
 import 'package:tripzzy/thirdplace.dart';
 
+import 'PlaceInformation.dart';
+
 class Day1 extends StatefulWidget {
   const Day1({Key? key}) : super(key: key);
 
@@ -18,6 +20,22 @@ class _Day1State extends State<Day1> {
   void initState() {
     super.initState();
     selectedDate = DateTime.now(); // Initialize with the current date
+  }
+
+  List<PlaceInformation> placeInformationList = [];
+
+  void updatePlaceInformation(String placeName, String information) {
+    // Check if the place information already exists
+    int index =
+        placeInformationList.indexWhere((info) => info.placeName == placeName);
+
+    if (index != -1) {
+      // If exists, update the information
+      placeInformationList[index] = PlaceInformation(placeName, information);
+    } else {
+      // If not, add new information
+      placeInformationList.add(PlaceInformation(placeName, information));
+    }
   }
 
   Future<void> _selectDate(BuildContext context) async {

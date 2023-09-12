@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class FourthPlaceDetails extends ChangeNotifier {
+class ThirdPlaceDay3 extends ChangeNotifier {
   String? _enteredLocation;
   String? _startTime;
   String? _endTime;

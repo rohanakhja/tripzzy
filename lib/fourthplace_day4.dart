@@ -3,19 +3,28 @@ import 'package:provider/provider.dart';
 import 'package:tripzzy/LastInfo.dart';
 import 'package:tripzzy/day1.dart';
 import 'package:tripzzy/day2.dart';
+import 'package:tripzzy/day3.dart';
+import 'package:tripzzy/provider/Firstplaceday2_provider.dart';
+import 'package:tripzzy/provider/Fourthplaceday2_provider.dart';
+import 'package:tripzzy/provider/Fourthplaceday3_provider.dart';
+import 'package:tripzzy/provider/Fourthplaceday4_provider.dart';
 import 'package:tripzzy/provider/placeprovider.dart';
 import 'package:tripzzy/secondplace.dart';
 
-class Firstplace extends StatelessWidget {
+import 'day4.dart';
+
+class FourthplaceDay4Main extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    String? enteredLocation = Provider.of<UserDetails>(context, listen: false)
-        .enteredLocation; // Variable to hold entered text
-    String? startTime = Provider.of<UserDetails>(context, listen: false)
+    String? enteredLocation =
+        Provider.of<FourthPlaceDay4>(context, listen: false)
+            .enteredLocation; // Variable to hold entered text
+    String? startTime = Provider.of<FourthPlaceDay4>(context, listen: false)
         .startTime; // Variable to hold start time
-    String? endTime = Provider.of<UserDetails>(context, listen: false)
+    String? endTime = Provider.of<FourthPlaceDay4>(context, listen: false)
         .endTime; // Variable to hold end time
-    String? budget = Provider.of<UserDetails>(context, listen: false).budget;
+    String? budget =
+        Provider.of<FourthPlaceDay4>(context, listen: false).budget;
 
     void _showTextFieldDialog() {
       showDialog(
@@ -26,7 +35,7 @@ class Firstplace extends StatelessWidget {
             content: TextField(
               onChanged: (value) {
                 //store value
-                Provider.of<UserDetails>(context, listen: false)
+                Provider.of<FourthPlaceDay4>(context, listen: false)
                     .setEnteredLocation(value);
               },
             ),
@@ -45,7 +54,8 @@ class Firstplace extends StatelessWidget {
 
     void _showTimePickerDialog() async {
       bool isStartTimePicker =
-          Provider.of<UserDetails>(context, listen: false).isStartTimePicker;
+          Provider.of<FourthPlaceDay4>(context, listen: false)
+              .isStartTimePicker;
 
       TimeOfDay? selectedTime = await showTimePicker(
         context: context,
@@ -56,15 +66,16 @@ class Firstplace extends StatelessWidget {
         if (!isStartTimePicker) {
           String startTime = selectedTime.format(context);
           //store value
-          Provider.of<UserDetails>(context, listen: false)
+          Provider.of<FourthPlaceDay4>(context, listen: false)
               .setStartTime(startTime);
-          Provider.of<UserDetails>(context, listen: false)
+          Provider.of<FourthPlaceDay4>(context, listen: false)
               .setStartTimePicker(true);
         } else {
           String endTime = selectedTime.format(context);
           //store value
-          Provider.of<UserDetails>(context, listen: false).setEndTime(endTime);
-          Provider.of<UserDetails>(context, listen: false)
+          Provider.of<FourthPlaceDay4>(context, listen: false)
+              .setEndTime(endTime);
+          Provider.of<FourthPlaceDay4>(context, listen: false)
               .setStartTimePicker(false);
         }
       }
@@ -80,7 +91,7 @@ class Firstplace extends StatelessWidget {
               keyboardType: TextInputType.number,
               onChanged: (value) {
                 //store value
-                Provider.of<UserDetails>(context, listen: false)
+                Provider.of<FourthPlaceDay2>(context, listen: false)
                     .setBudget(value);
               },
             ),
@@ -103,7 +114,7 @@ class Firstplace extends StatelessWidget {
         backgroundColor: Color(0xFFF37D4A), // Set background color
         title: Center(
           child: Text(
-            'First place',
+            'Fourth place',
             style: TextStyle(
               color: Colors.white,
               fontSize: 40,
@@ -158,7 +169,7 @@ class Firstplace extends StatelessWidget {
             // ),
 
             // Display entered text below button
-            Consumer<UserDetails>(
+            Consumer<FourthPlaceDay4>(
               builder: (context, userDetails, _) {
                 return Text(
                   userDetails.enteredLocation ?? 'Enter Location',
@@ -205,7 +216,7 @@ class Firstplace extends StatelessWidget {
             // ),
 
             // Display entered text below button
-            Consumer<UserDetails>(
+            Consumer<FourthPlaceDay4>(
               builder: (context, userDetails, _) {
                 return userDetails.startTime == null &&
                         userDetails.endTime == null
@@ -253,7 +264,7 @@ class Firstplace extends StatelessWidget {
             //   textAlign: TextAlign.center,
             // ),
             // Display entered text below button
-            Consumer<UserDetails>(
+            Consumer<FourthPlaceDay4>(
               builder: (context, userDetails, _) {
                 return Text(
                   userDetails.budget ?? 'Enter Budget',
@@ -263,7 +274,7 @@ class Firstplace extends StatelessWidget {
                 );
               },
             ),
-            SizedBox(height: 20), // Add spacing
+            SizedBox(height: 28), // Add spacing
             // Add the Image widget here
             SizedBox(
               height: 130,
@@ -294,7 +305,7 @@ class Firstplace extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => Day1(),
+                        builder: (context) => LastInfo(),
                       ),
                     );
                   },
@@ -322,12 +333,12 @@ class Firstplace extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => Day2(),
+                        builder: (context) => LastInfo(),
                       ),
                     );
                   },
                   child: Text(
-                    'Next Day',
+                    'Nxet Day',
                     style: TextStyle(
                       fontSize: 21,
                       fontStyle: FontStyle.italic,
@@ -353,7 +364,7 @@ class Firstplace extends StatelessWidget {
                 children: [
                   ElevatedButton(
                     onPressed: () {
-                      Provider.of<UserDetails>(context, listen: false)
+                      Provider.of<FourthPlaceDay4>(context, listen: false)
                           .clearData();
                     },
                     child: Text(

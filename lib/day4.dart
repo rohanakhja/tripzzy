@@ -1,20 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:tripzzy/firstplace_day2.dart';
 import 'package:tripzzy/fourthplace.dart';
 import 'package:tripzzy/fourthplace_day2.dart';
 import 'package:tripzzy/secondplace.dart';
 import 'package:tripzzy/secondplace_day2.dart';
+import 'package:tripzzy/secondplace_day3.dart';
+import 'package:tripzzy/secondplace_day4.dart';
 import 'package:tripzzy/thirdplace.dart';
 import 'package:tripzzy/thirdplace_day2.dart';
+import 'package:tripzzy/thirdplace_day3.dart';
+import 'package:tripzzy/thirdplace_day4.dart';
 
-class Day2 extends StatefulWidget {
-  const Day2({Key? key}) : super(key: key);
+import 'firstplace_day3.dart';
+import 'firstplace_day4.dart';
+import 'fourthplace_day4.dart';
+
+class Day4 extends StatefulWidget {
+  const Day4({Key? key}) : super(key: key);
 
   @override
-  State<Day2> createState() => _Day2State();
+  State<Day4> createState() => _Day4State();
 }
 
-class _Day2State extends State<Day2> {
+class _Day4State extends State<Day4> {
   DateTime? selectedDate; // To store the selected date
 
   @override
@@ -46,7 +53,7 @@ class _Day2State extends State<Day2> {
         backgroundColor: Color(0xFFF37D4A), // Set background color
         title: Center(
           child: Text(
-            'Day 2',
+            'Day 4',
             style: TextStyle(
               color: Colors.white,
               fontSize: 40,
@@ -61,13 +68,13 @@ class _Day2State extends State<Day2> {
             CustomShapeBorder(), // Use a custom shape for the curved bottom edge
       ),
       body: Container(
-        padding: EdgeInsets.only(top: 15, left: 13), // Add padding to the text
+        padding: EdgeInsets.only(top: 15, left: 15), // Add padding to the text
         child: Column(
           crossAxisAlignment:
               CrossAxisAlignment.start, // Align text to the left
           children: [
             Text(
-              'Enjoy your Journey',
+              '   End Of Journey',
               style: TextStyle(
                 color: Colors.black,
                 fontSize: 40,
@@ -112,7 +119,7 @@ class _Day2State extends State<Day2> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => FirstplaceDay2Main(),
+                          builder: (context) => FirstplaceDay4Main(),
                         ),
                       );
                     },
@@ -139,7 +146,7 @@ class _Day2State extends State<Day2> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => SecondplaceDay2Main(),
+                          builder: (context) => SecondplaceDay4Main(),
                         ),
                       );
                     },
@@ -166,7 +173,7 @@ class _Day2State extends State<Day2> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => ThirdplaceDay2Main(),
+                          builder: (context) => ThirdplaceDay4Main(),
                         ),
                       );
                     },
@@ -193,7 +200,7 @@ class _Day2State extends State<Day2> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => FourthplaceDay2Main(),
+                          builder: (context) => FourthplaceDay4Main(),
                         ),
                       );
                     },
@@ -241,5 +248,5 @@ class CustomShapeBorder extends ContinuousRectangleBorder {
 }
 
 void main() {
-  runApp(MaterialApp(home: Day2()));
+  runApp(MaterialApp(home: Day4()));
 }

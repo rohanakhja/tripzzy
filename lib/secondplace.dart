@@ -6,6 +6,8 @@ import 'package:tripzzy/provider/SecondPlaceDetails.dart';
 import 'package:tripzzy/provider/placeprovider.dart';
 import 'package:tripzzy/secondplace.dart';
 
+import 'LastInfo.dart';
+
 class Secondplace extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -84,7 +86,7 @@ class Secondplace extends StatelessWidget {
               keyboardType: TextInputType.number,
               onChanged: (value) {
                 //store value
-                Provider.of<UserDetails>(context, listen: false)
+                Provider.of<SecondPlaceDetails>(context, listen: false)
                     .setBudget(value);
               },
             ),
@@ -126,7 +128,7 @@ class Secondplace extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.only(left: 670, top: 20),
-              child: SizedBox(height: 20),
+              child: SizedBox(height: 10),
             ),
             ElevatedButton(
               onPressed: () {
@@ -267,7 +269,7 @@ class Secondplace extends StatelessWidget {
                 );
               },
             ),
-            SizedBox(height: 28), // Add spacing
+            SizedBox(height: 20), // Add spacing
             // Add the Image widget here
             SizedBox(
               height: 130,
@@ -287,11 +289,11 @@ class Secondplace extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 35),
+            SizedBox(height: 15),
             // Add spacing
             Row(
               children: [
-                SizedBox(width: 40),
+                SizedBox(width: 45),
                 ElevatedButton(
                   onPressed: () {
                     //nevigate
@@ -303,7 +305,7 @@ class Secondplace extends StatelessWidget {
                     );
                   },
                   child: Text(
-                    'Next ➜',
+                    'Next Place',
                     style: TextStyle(
                       fontSize: 18,
                       fontStyle: FontStyle.italic,
@@ -331,7 +333,7 @@ class Secondplace extends StatelessWidget {
                     );
                   },
                   child: Text(
-                    'Submit',
+                    'Next Day',
                     style: TextStyle(
                       fontSize: 21,
                       fontStyle: FontStyle.italic,
@@ -348,6 +350,65 @@ class Secondplace extends StatelessWidget {
                   ),
                 ),
               ],
+            ),
+
+            SizedBox(
+              height: 70,
+              width: 270,
+              child: Row(
+                children: [
+                  ElevatedButton(
+                    onPressed: () {
+                      Provider.of<SecondPlaceDetails>(context, listen: false)
+                          .clearData();
+                    },
+                    child: Text(
+                      'Clear Info',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontStyle: FontStyle.italic,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor:
+                          Color.fromARGB(202, 7, 13, 17), // Set button color
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      minimumSize: Size(120, 40), // Set button size
+                    ),
+                  ),
+                  SizedBox(width: 30),
+                  ElevatedButton(
+                    onPressed: () {
+                      //nevigate
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => LastInfo(),
+                        ),
+                      );
+                    },
+                    child: Text(
+                      'Submit',
+                      style: TextStyle(
+                        fontSize: 21,
+                        fontStyle: FontStyle.italic,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor:
+                          Color.fromARGB(202, 7, 13, 17), // Set button color
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      minimumSize: Size(120, 40), // Set button size
+                    ),
+                  ),
+                ],
+              ),
             ),
           ],
         ),

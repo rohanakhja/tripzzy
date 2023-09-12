@@ -37,4 +37,12 @@ class FirstPlaceDay2 extends ChangeNotifier {
     _budget = value;
     notifyListeners();
   }
+
+  void clearData() {
+    _enteredLocation = null;
+    _startTime = null;
+    _endTime = null;
+    _budget = null;
+    notifyListeners();
+  }
 }
